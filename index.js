@@ -4,7 +4,7 @@ import { renderPopulation } from "./render.js";
 const buttonsContainer = document.getElementById("buttons-container");
 const finishedText = document.getElementById("finished-text");
 const generateInitialPopulationBtn = document.getElementById("generate-initial");
-const pruneCurrentGenerationBtn = document.getElementById("prune-current-generation-btn");
+const selectBtn = document.getElementById("select-btn");
 const breedBtn = document.getElementById("breed-btn");
 
 const targetStringInput = document.getElementById("target-string-input");
@@ -18,7 +18,7 @@ const currentGenerationNumberEl = document.getElementById("current-generation-nu
 const previousGenerationNumberEl = document.getElementById("previous-generation-number");
 
 generateInitialPopulationBtn.addEventListener("click", generateInitialPopulation);
-pruneCurrentGenerationBtn.addEventListener("click", pruneCurrentPolulation);
+selectBtn.addEventListener("click", selectClosestStrings);
 breedBtn.addEventListener("click", breed);
 
 let currentGeneration = [];
@@ -59,7 +59,7 @@ function calculateFitness(candidateStringArray) {
   return fitness;
 }
 
-function pruneCurrentPolulation() {
+function selectClosestStrings() {
   if (!currentGeneration.length) return;
 
   const numberToKeep = parseInt(keepInput.value);
@@ -135,7 +135,7 @@ function start() {
   targetStringInput.disabled = true;
   
   generateInitialPopulationBtn.classList.add("hidden");
-  pruneCurrentGenerationBtn.classList.remove("hidden");
+  selectBtn.classList.remove("hidden");
   breedBtn.classList.remove("hidden");
 }
 
