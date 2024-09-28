@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-5 flex justify-center">
+    <div>
+      <h1 class="font-bold text-3xl mb-10">Genetic algorithm</h1>
+      <div class="mb-10">
+        <div class="mb-4 flex gap-5">
+          <label>
+            <span class="block font-bold mb-2">Target string:</span>
+            <input
+              type="text"
+              class="px-4 py-2 rounded border border-slate-600 w-72 focus:border-orange-600 focus:outline-orange-600 disabled:bg-slate-100 disabled:opacity-65"
+              id="target-string-input"
+            />
+          </label>
+
+          <label>
+            <span class="block font-bold mb-2">Population size</span>
+            <input
+              type="number"
+              value="500"
+              class="px-4 py-2 rounded border border-slate-600 w-72 focus:border-orange-600 focus:outline-orange-600 disabled:bg-slate-100 disabled:opacity-65"
+              id="population-size-input"
+            />
+          </label>
+        </div>
+
+        <div class="mb-4 flex gap-5">
+          <label>
+            <span class="block font-bold mb-2">Mutation %</span>
+            <input
+              type="number"
+              value="2"
+              class="px-4 py-2 rounded border border-slate-600 w-72 focus:border-orange-600 focus:outline-orange-600 disabled:bg-slate-100 disabled:opacity-65"
+              id="mutation-input"
+            />
+          </label>
+
+          <label>
+            <span class="block font-bold mb-2">Number to keep</span>
+            <input
+              type="number"
+              value="10"
+              class="px-4 py-2 rounded border border-slate-600 w-72 focus:border-orange-600 focus:outline-orange-600 disabled:bg-slate-100 disabled:opacity-65"
+              id="keep-input"
+            />
+          </label>
+        </div>
+
+        <div class="flex gap-5 justify-center" id="buttons-container">
+          <button
+            class="rounded bg-orange-600 text-white py-2 px-10 hover:opacity-80 active:opacity-60 active:scale-95 transition-all"
+            id="generate-initial"
+          >
+            Initial population
+          </button>
+          <button
+            class="rounded bg-orange-600 text-white py-2 px-10 hover:opacity-80 active:opacity-60 active:scale-95 transition-all hidden"
+            id="prune-current-generation-btn"
+          >
+            Prune
+          </button>
+          <button
+            class="rounded bg-orange-600 text-white py-2 px-10 hover:opacity-80 active:opacity-60 active:scale-95 transition-all hidden"
+            id="breed-btn"
+          >
+            Breed
+          </button>
+        </div>
+
+        <p
+          id="finished-text"
+          class="text-center text-xl text-orange-600 font-bold hidden"
+        >
+          The solution has been found!
+        </p>
+      </div>
+
+      <div class="flex gap-10">
+        <div class="grow">
+          <h1 class="font-bold text-xl text-center mb-5">
+            Current generation <span id="current-generation-number"></span>
+          </h1>
+          <div id="current-generation"></div>
+        </div>
+        <div class="grow">
+          <h1 class="font-bold text-xl text-center mb-5">
+            Previous generation <span id="previous-generation-number"></span>
+          </h1>
+          <div id="previous-generation"></div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
